@@ -1,0 +1,87 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.hpe.com/blog/introducing-the-hpe-nimble-storage-sdk-for-python/
+docs: https://hpe-storage.github.io/nimble-python-sdk/
+notes: >-
+  Entity graph of the core NimbleOS REST API object sets, drawn from the
+  documented resource list exposed by the Python and Go SDKs. Relationships
+  reflect standard NimbleOS storage concepts. No OpenAPI is published, so this is
+  derived from the object reference rather than $ref links.
+entities:
+  - name: array
+    object_set: arrays
+    description: A physical Nimble Storage array (controller pair + shelves).
+  - name: pool
+    object_set: pools
+    description: Storage pool aggregating one or more arrays.
+  - name: volume
+    object_set: volumes
+    description: Provisioned block volume served from a pool.
+  - name: snapshot
+    object_set: snapshots
+    description: Point-in-time copy of a volume.
+  - name: snapshot_collection
+    object_set: snapshot_collections
+    description: Consistent set of snapshots taken across a volume collection.
+  - name: volume_collection
+    object_set: volume_collections
+    description: Group of volumes managed and replicated together.
+  - name: protection_template
+    object_set: protection_templates
+    description: Reusable schedule/replication policy applied to volume collections.
+  - name: initiator_group
+    object_set: initiator_groups
+    description: Group of host initiators granted access to volumes.
+  - name: initiator
+    object_set: initiators
+    description: A single host initiator (iSCSI IQN or FC WWPN).
+  - name: access_control_record
+    object_set: access_control_records
+    description: Grant binding a volume to an initiator_group.
+  - name: performance_policy
+    object_set: performance_policies
+    description: Block-size / caching / compression policy applied to volumes.
+  - name: replication_partner
+    object_set: replication_partners
+    description: Remote array/group configured as a replication target.
+relationships:
+  - from: volume
+    to: pool
+    kind: belongs_to
+    via: pool_id
+  - from: snapshot
+    to: volume
+    kind: belongs_to
+    via: vol_id
+  - from: volume
+    to: volume_collection
+    kind: belongs_to
+    via: volcoll_id
+  - from: snapshot_collection
+    to: volume_collection
+    kind: belongs_to
+    via: volcoll_id
+  - from: volume_collection
+    to: protection_template
+    kind: belongs_to
+    via: prottmpl_id
+  - from: initiator
+    to: initiator_group
+    kind: belongs_to
+    via: initiator_group_id
+  - from: access_control_record
+    to: volume
+    kind: belongs_to
+    via: vol_id
+  - from: access_control_record
+    to: initiator_group
+    kind: belongs_to
+    via: initiator_group_id
+  - from: volume
+    to: performance_policy
+    kind: belongs_to
+    via: perfpolicy_id
+  - from: pool
+    to: array
+    kind: has_many
+    via: array_list

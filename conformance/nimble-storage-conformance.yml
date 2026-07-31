@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: derived
+source: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+notes: >-
+  Cross-cutting standards posture for the NimbleOS REST API, derived from the
+  documented auth model and resource surface. No published third-party
+  compliance certifications are asserted here, so no Compliance pointer is
+  emitted.
+standards:
+  - id: rest
+    conforms: true
+    evidence: >-
+      Resource-oriented object sets with standard GET/POST/PUT/DELETE operations
+      over HTTPS returning application/json.
+  - id: oauth2
+    conforms: false
+    evidence: Uses session-token (X-Auth-Token) apiKey auth, not OAuth2.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors returned as a NimbleOS JSON error object (messages[]), not
+      application/problem+json.
+  - id: json-api
+    conforms: false
+  - id: odata
+    conforms: false

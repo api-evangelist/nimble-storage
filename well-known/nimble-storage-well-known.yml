@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+notes: >-
+  Probed the /.well-known/ discovery surface on the Nimble Storage web host and
+  the HPE developer portal. No discovery documents were returned. The NimbleOS
+  REST API itself is served per-array (https://<array>:5392/v1/), which was not
+  probed. nimblestorage.com redirects to Hewlett Packard Enterprise.
+probes:
+  - host: https://www.nimblestorage.com
+    documents:
+      - {path: /.well-known/security.txt, status: 000}
+      - {path: /.well-known/openid-configuration, status: 000}
+      - {path: /.well-known/oauth-authorization-server, status: 000}
+      - {path: /.well-known/api-catalog, status: 000}
+      - {path: /.well-known/ai-plugin.json, status: 000}
+  - host: https://developer.hpe.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+documents: []

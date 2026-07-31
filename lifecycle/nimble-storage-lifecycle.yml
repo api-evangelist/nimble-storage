@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+notes: >-
+  Nimble Storage was acquired by Hewlett Packard Enterprise in 2017; the product
+  line is now HPE Nimble Storage / HPE Alletra 6000, and the NimbleOS REST API
+  versions track the array software (NimbleOS) release. The REST API is served
+  per-array, so there is no central hosted status page or deprecation feed for
+  the API itself.
+versioning:
+  scheme: uri-path
+  current: v1
+  coupled_to: NimbleOS array software version (5.x supported by the SDKs)
+product_lifecycle:
+  vendor: Hewlett Packard Enterprise (HPE)
+  acquired: '2017'
+  succeeded_by: HPE Alletra 6000
+  status: supported (HPE Nimble Storage / dHCI); superseded product line
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

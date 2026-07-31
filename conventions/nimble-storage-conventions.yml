@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+docs: https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/
+notes: >-
+  Cross-cutting request/response semantics of the NimbleOS REST API. The API is
+  an on-premises appliance API served on each array at
+  https://<array>:5392/v1/. No documented idempotency-key contract exists, so no
+  Idempotency pointer is emitted.
+conventions:
+  base_uri: https://<array>:5392/v1/
+  transport: HTTPS (TLS)
+  authentication:
+    style: session-token
+    header: X-Auth-Token
+    token_endpoint: /v1/tokens
+    ref: authentication/nimble-storage-authentication.yml
+  versioning:
+    style: uri-path
+    current: v1
+    coupled_to: NimbleOS array software version
+  resource_model:
+    style: object-sets
+    id_scheme: opaque per-object id string
+    standard_operations: [GET, POST, PUT, DELETE]
+    custom_actions: >-
+      Some object sets expose custom actions invoked via POST to
+      /v1/<object-set>/<id>/actions/<action> (for example bulk snapshot or
+      restore operations).
+  content_type: application/json
+  idempotency:
+    supported: false
+    note: No idempotency-key header or documented safe-retry contract.
+  error_envelope:
+    ref: errors (not separately captured; NimbleOS returns a JSON error object
+      with messages[] containing code, severity, and text)

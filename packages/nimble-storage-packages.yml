@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+notes: >-
+  First-party client libraries for the HPE Nimble Storage (NimbleOS) REST API,
+  published by HPE Nimble Storage DCS under the hpe-storage GitHub organization.
+  All wrap the same NimbleOS REST API exposed on each array at
+  https://<array>:5392/v1/.
+packages:
+  - language: python
+    registry: pypi
+    name: nimble-sdk
+    version: 1.2.1
+    url: https://pypi.org/project/nimble-sdk/
+    source: https://github.com/hpe-storage/nimble-python-sdk
+    docs: https://hpe-storage.github.io/nimble-python-sdk/
+    install: pip install nimble-sdk
+    license: Apache-2.0
+    official: true
+    requires: NimbleOS 5.0+, Python 3.6+
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/hpe-storage/nimble-golang-sdk
+    url: https://pkg.go.dev/github.com/hpe-storage/nimble-golang-sdk
+    source: https://github.com/hpe-storage/nimble-golang-sdk
+    install: go get github.com/hpe-storage/nimble-golang-sdk
+    license: Apache-2.0
+    official: true
+    requires: NimbleOS 5.0.10-5.3.2, Go 1.13+
+  - language: ansible
+    registry: ansible-galaxy
+    name: hpe.nimble
+    url: https://galaxy.ansible.com/hpe/nimble
+    source: https://github.com/hpe-storage/nimble-ansible-modules
+    install: ansible-galaxy collection install hpe.nimble
+    license: Apache-2.0
+    official: true
+    requires: HPE Nimble Storage SDK for Python (nimble-sdk)

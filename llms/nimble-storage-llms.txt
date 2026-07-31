@@ -1,0 +1,26 @@
+# Nimble Storage
+
+> HPE Nimble Storage is an enterprise flash and adaptive-flash storage platform (acquired by Hewlett Packard Enterprise in 2017, now part of the HPE Alletra 6000 line). NimbleOS exposes a REST API for programmatic management of arrays, volumes, snapshots, and data protection, served per-array at https://<array>:5392/v1/ with session-token (X-Auth-Token) authentication. First-party Python, Go, and Ansible client libraries are published by HPE Nimble Storage DCS.
+
+## APIs
+- [NimbleOS REST API Reference](https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904.html): Object-set REST API (volumes, snapshots, pools, initiator groups, protection templates) served on each array at :5392/v1.
+
+## Developer
+- [HPE Nimble Storage Developer Portal](https://developer.hpe.com/platform/hpe-nimble-storage/home/): SDKs, tools, and integration guides.
+- [HPE Developer Blog](https://developer.hpe.com/blog/): Articles on the Nimble SDKs and automation.
+
+## SDKs
+- [Python SDK (nimble-sdk)](https://pypi.org/project/nimble-sdk/): pip install nimble-sdk — source github.com/hpe-storage/nimble-python-sdk.
+- [Go SDK](https://pkg.go.dev/github.com/hpe-storage/nimble-golang-sdk): go get github.com/hpe-storage/nimble-golang-sdk.
+- [Ansible Collection (hpe.nimble)](https://galaxy.ansible.com/hpe/nimble): ansible-galaxy collection install hpe.nimble.
+
+## Repos
+- [NimbleStorage on GitHub](https://github.com/NimbleStorage): Automation and container examples, Nemo emulator, Puppet/Ansible modules.
+- [hpe-storage on GitHub](https://github.com/hpe-storage): Python and Go SDKs and storage platform tooling.
+
+## Artifacts
+- packages/nimble-storage-packages.yml — client libraries (Python, Go, Ansible).
+- authentication/nimble-storage-authentication.yml — session-token (X-Auth-Token) auth.
+- conventions/nimble-storage-conventions.yml — base URI, versioning, resource model.
+- data-model/nimble-storage-data-model.yml — array/pool/volume/snapshot entity graph.
+- lifecycle/nimble-storage-lifecycle.yml — versioning + HPE product lifecycle.

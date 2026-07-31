@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/
+docs: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+notes: >-
+  The NimbleOS REST API uses session-token authentication. A client first POSTs
+  array credentials (username/password) to the tokens endpoint to obtain a
+  session_token, then presents that token in the X-Auth-Token header on every
+  subsequent request. Authentication and the API are served per-array (on-prem
+  appliance), not from a central hosted endpoint.
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+  - name: session-token
+    type: apiKey
+    in: header
+    parameter_name: X-Auth-Token
+    description: >-
+      Session token returned by POST https://<array>:5392/v1/tokens with a JSON
+      body containing the array username and password. The returned
+      session_token is sent as the X-Auth-Token request header on all subsequent
+      calls. Tokens expire after an idle timeout and are revoked by DELETE on the
+      token object.
+    token_endpoint: https://<array>:5392/v1/tokens
+    sources: [docs]

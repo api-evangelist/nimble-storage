@@ -1,8 +1,29 @@
 aid: nimble-storage
 name: Nimble Storage
-description: 'Nimble Storage is a company surfaced as a portfolio company of accel, lightspeed-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. Sector: big-data. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  Nimble Storage is an enterprise flash and adaptive-flash storage platform,
+  acquired by Hewlett Packard Enterprise in 2017 and now part of the HPE Nimble
+  Storage / HPE Alletra 6000 product line. Its NimbleOS software exposes a
+  REST API for programmatic management of arrays, storage pools, volumes,
+  snapshots, initiator groups, and data-protection policies. The API is served
+  per-array at https://<array>:5392/v1/ using session-token (X-Auth-Token)
+  authentication, and HPE publishes first-party Python, Go, and Ansible client
+  libraries for it. Originally venture-backed by Accel and Lightspeed Venture
+  Partners, the company was added to the API Evangelist network and enriched
+  from its public developer surface.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/9436637
 url: https://raw.githubusercontent.com/api-evangelist/nimble-storage/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,11 +34,37 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Big Data
-apis: []
+- Storage
+- Data Storage
+- Infrastructure
+- Enterprise
+- HPE
+apis:
+- name: NimbleOS REST API
+  description: >-
+    REST API served on each Nimble Storage array (NimbleOS 5.x) for managing
+    arrays, pools, volumes, snapshots, volume/snapshot collections, protection
+    templates, initiator groups, access control records, and performance
+    policies. Object-set resources with standard GET/POST/PUT/DELETE operations
+    over HTTPS, authenticated with a session token in the X-Auth-Token header.
+  humanURL: https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904.html
+  baseURL: https://array:5392/v1
+  tags:
+  - Storage
+  - REST
+  properties:
+  - type: Authentication
+    url: authentication/nimble-storage-authentication.yml
+  - type: Conventions
+    url: conventions/nimble-storage-conventions.yml
+  - type: DataModel
+    url: data-model/nimble-storage-data-model.yml
+  - type: Conformance
+    url: conformance/nimble-storage-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +73,38 @@ maintainers:
 common:
 - type: Website
   url: http://www.nimblestorage.com
+- type: DeveloperPortal
+  url: https://developer.hpe.com/platform/hpe-nimble-storage/home/
+- type: Documentation
+  url: https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904.html
+- type: APIReference
+  url: https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/omq1488160167637.html
+- type: Blog
+  url: https://developer.hpe.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/NimbleStorage
+- type: Packages
+  url: packages/nimble-storage-packages.yml
+- type: SDKs
+  url: packages/nimble-storage-packages.yml
+- type: Authentication
+  url: authentication/nimble-storage-authentication.yml
+- type: Conventions
+  url: conventions/nimble-storage-conventions.yml
+- type: DataModel
+  url: data-model/nimble-storage-data-model.yml
+- type: Conformance
+  url: conformance/nimble-storage-conformance.yml
+- type: Lifecycle
+  url: lifecycle/nimble-storage-lifecycle.yml
+- type: MCPServer
+  url: mcp/nimble-storage-mcp.yml
+- type: LLMsTxt
+  url: llms/nimble-storage-llms.txt
+- type: DomainSecurity
+  url: security/nimble-storage-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1
