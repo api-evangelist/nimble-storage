@@ -6,9 +6,10 @@
       "feed_url": "https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/omq1488160167637.html",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-06T14:08:46Z"
+  "fetched": "2026-08-15T12:11:08Z"
 }
