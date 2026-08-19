@@ -2,39 +2,42 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: https://developer.hpe.com/blog/introducing-the-hpe-nimble-storage-sdk-for-python/
-notes: >-
-  No official hosted/remote MCP server is published for HPE Nimble Storage. This
-  is a CANDIDATE tool surface derived from the documented NimbleOS REST API
-  object sets (as exposed by the first-party Python/Go SDKs). Not an authoritative
-  provider claim. The NimbleOS REST API is served per-array at
-  https://<array>:5392/v1/, so any MCP server would be self-hosted against a
-  specific array with an X-Auth-Token session.
+notes: No official hosted/remote MCP server is published for HPE Nimble Storage. This is a CANDIDATE tool
+  surface derived from the documented NimbleOS REST API object sets (as exposed by the first-party Python/Go
+  SDKs). Not an authoritative provider claim. The NimbleOS REST API is served per-array at https://<array>:5392/v1/,
+  so any MCP server would be self-hosted against a specific array with an X-Auth-Token session.
 server:
   name: nimble-storage
   transport: stdio
   url: null
 tools:
-  - name: list_volumes
-    description: List block volumes on the array.
-    source_resource: /v1/volumes (GET)
-  - name: get_volume
-    description: Get details for a single volume.
-    source_resource: /v1/volumes/{id} (GET)
-  - name: create_volume
-    description: Provision a new volume in a pool.
-    source_resource: /v1/volumes (POST)
-  - name: list_snapshots
-    description: List snapshots, optionally filtered by volume.
-    source_resource: /v1/snapshots (GET)
-  - name: create_snapshot
-    description: Take a point-in-time snapshot of a volume.
-    source_resource: /v1/snapshots (POST)
-  - name: list_volume_collections
-    description: List volume collections (replication/protection groups).
-    source_resource: /v1/volume_collections (GET)
-  - name: list_initiator_groups
-    description: List host initiator groups.
-    source_resource: /v1/initiator_groups (GET)
-  - name: list_arrays
-    description: List arrays in the group and their capacity/health.
-    source_resource: /v1/arrays (GET)
+- name: list_volumes
+  description: List block volumes on the array.
+  source_resource: /v1/volumes (GET)
+- name: get_volume
+  description: Get details for a single volume.
+  source_resource: /v1/volumes/{id} (GET)
+- name: create_volume
+  description: Provision a new volume in a pool.
+  source_resource: /v1/volumes (POST)
+- name: list_snapshots
+  description: List snapshots, optionally filtered by volume.
+  source_resource: /v1/snapshots (GET)
+- name: create_snapshot
+  description: Take a point-in-time snapshot of a volume.
+  source_resource: /v1/snapshots (POST)
+- name: list_volume_collections
+  description: List volume collections (replication/protection groups).
+  source_resource: /v1/volume_collections (GET)
+- name: list_initiator_groups
+  description: List host initiator groups.
+  source_resource: /v1/initiator_groups (GET)
+- name: list_arrays
+  description: List arrays in the group and their capacity/health.
+  source_resource: /v1/arrays (GET)
+deployment:
+  mode: none
+  verified: derived
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census
