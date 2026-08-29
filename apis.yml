@@ -11,6 +11,17 @@ description: >-
   libraries for it. Originally venture-backed by Accel and Lightspeed Venture
   Partners, the company was added to the API Evangelist network and enriched
   from its public developer surface.
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
