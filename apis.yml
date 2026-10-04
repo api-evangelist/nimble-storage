@@ -126,3 +126,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 10
   pass: local-v1
+x-status: acquired
+x-acquired-by: hpe
